@@ -13,7 +13,7 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         Runner runner = new Runner();
-        runner.runYear("2022", "");
+        runner.runYear("2022", "01");
     }
 
 
@@ -21,7 +21,7 @@ public class Runner {
         List<Object> daysToRun = getDaySolversToRun(year, day);
 
 
-        System.out.println(String.format("| %4s | %20s | %20s | %13s | %13s |", "Day", "Part 1", "Part 2", "Time p1", "Time p2"));
+        System.out.printf("| %4s | %20s | %20s | %13s | %13s |%n", "Day", "Part 1", "Part 2", "Time p1", "Time p2");
         System.out.println("--------------------------------------------------------------------------------------");
         for (Object d: daysToRun) {
             AocSolver daySolver = (AocSolver) d;
@@ -35,7 +35,7 @@ public class Runner {
             long time2 = System.currentTimeMillis() - start;
 
 
-            System.out.println(String.format("|%5s | %20d | %20d | %10d ms | %10d ms |", daySolver.getClass().getSimpleName().replaceAll("Day", ""), res1, res2, time1, time2));
+            System.out.printf("|%5s | %20d | %20d | %10d ms | %10d ms |%n", daySolver.getClass().getSimpleName().replaceAll("Day", ""), res1, res2, time1, time2);
         }
         System.out.println("--------------------------------------------------------------------------------------");
     }
