@@ -14,29 +14,15 @@ public class Day02 implements AocSolver {
 
         long score = 0;
         for (String line: lines) {
-            String[] parts = line.split(" ");
+            int theirMove = line.charAt(0) - 'A';
+            int mymove =  line.charAt(2)- 'X';
+            score += mymove + 1;
 
-            score += parts[1].charAt(0) - 'X' + 1;
-
-            score += switch (parts[0]) {
-                case "A" -> switch(parts[1]) {
-                    case "X" -> 3;
-                    case "Y" -> 6;
-                    default -> 0;
-                };
-                case "B" -> switch (parts[1]) {
-                    case "Y" -> 3;
-                    case "Z" -> 6;
-                    default -> 0;
-                };
-                case "C" -> switch(parts[1]) {
-                    case "Z" -> 3;
-                    case "X" -> 6;
-                    default -> 0;
-                };
+            score += switch (mymove - theirMove) {
+                case 0 -> 3;
+                case -2,1 -> 6;
                 default -> 0;
             };
-
         }
 
         return score;
@@ -47,24 +33,17 @@ public class Day02 implements AocSolver {
 
         long score = 0;
         for (String line: lines) {
-            String[] parts = line.split(" ");
+            int what = line.charAt(2) - 'Y'; // -1,0,1
+            int opponent = line.charAt(0) - 'A'; // 0, 1, 2
 
-            int what = switch (parts[1]) {
-                case "X" -> -1;
-                case "Z" -> 1;
-                default -> 0;
-            };
-
-            int opponent = parts[0].charAt(0) - 'A';
+            /*
+            Play Theirs - 1 = lose
+            Play theirs = tie
+            Play Theirs + 1 = win (modulo 3).
+             */
             int move = Math.floorMod(opponent + what, 3);
-
             score += move + 1;
-
-            score += switch (parts[1]) {
-                case "X" -> 0;
-                case "Y" -> 3;
-                default -> 6;
-            };
+            score += (what + 1) * 3;
         }
 
         return score;
