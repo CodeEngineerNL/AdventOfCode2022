@@ -14,15 +14,12 @@ public class Day04 implements AocSolver {
         int count = 0;
 
         for (String line: lines) {
-            String[] parts = line.split(",");
+            String[] parts = line.split("[,-]");
 
-            String[] pair1 = parts[0].split("-");
-            String[] pair2 = parts[1].split("-");
-
-            int start1 = Integer.parseInt(pair1[0]);
-            int end1 = Integer.parseInt(pair1[1]);
-            int start2 = Integer.parseInt(pair2[0]);
-            int end2 = Integer.parseInt(pair2[1]);
+            int start1 = Integer.parseInt(parts[0]);
+            int end1 = Integer.parseInt(parts[1]);
+            int start2 = Integer.parseInt(parts[2]);
+            int end2 = Integer.parseInt(parts[3]);
 
             if ((start1 >= start2 && end1 <= end2) || (start2 >= start1 && end2 <= end1)) {
                 count++;
@@ -37,15 +34,12 @@ public class Day04 implements AocSolver {
         int count = 0;
 
         for (String line: lines) {
-            String[] parts = line.split(",");
+            String[] parts = line.split("[,-]");
 
-            String[] pair1 = parts[0].split("-");
-            String[] pair2 = parts[1].split("-");
-
-            int start1 = Integer.parseInt(pair1[0]);
-            int end1 = Integer.parseInt(pair1[1]);
-            int start2 = Integer.parseInt(pair2[0]);
-            int end2 = Integer.parseInt(pair2[1]);
+            int start1 = Integer.parseInt(parts[0]);
+            int end1 = Integer.parseInt(parts[1]);
+            int start2 = Integer.parseInt(parts[2]);
+            int end2 = Integer.parseInt(parts[3]);
 
             if (start1 <= end2 && start2 <= end1 ) {
                 count++;
