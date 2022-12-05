@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Day03 implements AocSolver {
 
-    public long part1() throws IOException {
+    public Object part1() throws IOException {
         var lines = getInput();
 
         long sum = 0;
@@ -30,7 +30,7 @@ public class Day03 implements AocSolver {
         return sum;
     }
 
-    public long part2() throws IOException {
+    public Object part2() throws IOException {
         var lines = getInput();
         long sum = 0;
 

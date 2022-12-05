@@ -10,7 +10,7 @@ import java.util.List;
 
 public class Day01 implements AocSolver {
 
-    public long part1() throws IOException {
+    public Object part1() throws IOException {
         var lines = getInput();
 
         int total = 0;
@@ -30,7 +30,7 @@ public class Day01 implements AocSolver {
         return max;
     }
 
-    public long part2() throws IOException {
+    public Object part2() throws IOException {
         var lines = getInput();
 
         List<Integer> result = new ArrayList<>();
