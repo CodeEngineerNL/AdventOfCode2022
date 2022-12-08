@@ -58,6 +58,6 @@ public class Day01 implements AocSolver {
     }
 
     public List<String> getInput() throws IOException {
-        return Files.readAllLines(Path.of("inputs", "aoc_2022_day01_large_input.txt"));
+        return Files.readAllLines(Path.of("inputs", "day1.txt"));
     }
 }

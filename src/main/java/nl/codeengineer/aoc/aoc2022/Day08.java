@@ -10,34 +10,20 @@ public class Day08 implements AocSolver {
 
     public Object part1() throws IOException {
         int[][] heigthMap = getInput();
-        boolean[][] visMap = new boolean[heigthMap.length][heigthMap[0].length];
-
-        for (int x = 0; x < visMap[0].length; x++) {
-            visMap[0][x] = true;
-            visMap[visMap.length - 1][x] = true;
-        }
-
-        for (int y = 1; y < visMap.length - 1; y++) {
-            visMap[y][0] = true;
-            visMap[y][visMap[0].length - 1] = true;
-        }
-
-        for (int y = 1; y < visMap.length; y++) {
-            for (int x = 1; x < visMap[0].length; x++) {
-                visMap[y][x] = isVisible(x, y, heigthMap);
-            }
-        }
 
         int count = 0;
-        for (int y = 0; y < visMap.length; y++) {
-            for (int x = 0; x < visMap[0].length; x++) {
-                if (visMap[y][x]) {
+        int height = heigthMap.length;
+        int width =  heigthMap[0].length;
+
+        for (int y = 1; y < height - 1; y++) {
+            for (int x = 1; x <width - 1; x++) {
+                if (isVisible(x, y, heigthMap)) {
                     count++;
                 }
             }
         }
 
-       return count;
+        return count + height * 2 +width * 2 - 4;
     }
 
     public Object part2() throws IOException {
