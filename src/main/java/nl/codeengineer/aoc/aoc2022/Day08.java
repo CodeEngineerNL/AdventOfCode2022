@@ -98,7 +98,7 @@ public class Day08 implements AocSolver {
         while (yray >= 0 && heightMap[yray][x] < heightMap[y][x]) {
             yray--;
         }
-        int score = yray < 0 ? y : y - yray;
+        long score = yray < 0 ? y : y - yray;
 
         // down
         yray  =y + 1;
