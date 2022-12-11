@@ -13,7 +13,7 @@ public class Runner {
 
     public static void main(String[] args) throws IOException {
         Runner runner = new Runner();
-        runner.runYear("2022", "");
+        runner.runYear("2022", "11");
     }
 
 
@@ -35,7 +35,7 @@ public class Runner {
                 Object res2 = daySolver.part2();
                 long time2 = System.nanoTime() - start;
 
-                System.out.printf("|%5s | %20s | %20s | %7.2f ms | %7.2f ms |%n", daySolver.getClass().getSimpleName().replaceAll("Day", ""), res1, res2, time1 / 1000.0 / 1000.0, time2 / 1000.0 / 1000.0);
+                System.out.printf("|%5s | %20s | %20s | %10.2f ms | %10.2f ms |%n", daySolver.getClass().getSimpleName().replaceAll("Day", ""), res1, res2, time1 / 1000.0 / 1000.0, time2 / 1000.0 / 1000.0);
            //}
         }
         System.out.println("--------------------------------------------------------------------------------------");
