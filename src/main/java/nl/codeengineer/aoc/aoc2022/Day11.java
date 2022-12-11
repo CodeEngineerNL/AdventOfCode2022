@@ -23,7 +23,7 @@ public class Day11 implements AocSolver {
         long[] numInspected = new long[monkeys.length];
 
        long allDiv = 1;
-       if (!useRelief) {
+        if (!useRelief) {
            // Calc the number which we can use as module for all monkeys, e.g. multiply the dividers of all monkeys
            for (Monkey m : monkeys) {
                 allDiv *= m.testDivider;
@@ -36,7 +36,7 @@ public class Day11 implements AocSolver {
                 while (!monkeys[i].items.isEmpty()) {
                     numInspected[i]++;
 
-                    long wLevel = monkeys[i].items.get(0);
+                    long wLevel = monkeys[i].items.removeFirst();
 
                     switch (monkeys[i].operation) {
                         case ADD_NUM -> wLevel += monkeys[i].operand;
@@ -55,9 +55,8 @@ public class Day11 implements AocSolver {
                     } else {
                         monkeys[monkeys[i].monkeyFalse].items.add(wLevel);
                     }
-                    monkeys[i].items.remove(0);
-                }
 
+                }
             }
         }
 
@@ -79,7 +78,7 @@ public class Day11 implements AocSolver {
             String testTrue = br.readLine().split(": ")[1];
             String testFalse = br.readLine().split(": ")[1];
 
-            List<Long> items = new LinkedList<>();
+            Deque<Long> items = new LinkedList<>();
             for (String intItem: startItems.split(",")) {
                 items.add(Long.parseLong(intItem.trim()));
             }
@@ -118,5 +117,5 @@ public class Day11 implements AocSolver {
         MUL_SELF
 
     }
-    public static record Monkey(List<Long> items, Operation operation, long operand, long testDivider, int monkeyTrue, int monkeyFalse){}
+    public static record Monkey(Deque<Long> items, Operation operation, long operand, long testDivider, int monkeyTrue, int monkeyFalse){}
 }
